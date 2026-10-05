@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="hi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Happy Birthday,Aarti</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap');
+
+		:root {
+			--ink: #24304a;
+			--muted: #66718a;
+			--rose: #f26d7d;
+			--coral: #ff967d;
+			--yellow: #ffd166;
+			--cream: #fff8ed;
+			--paper: rgba(255, 255, 255, .82);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--cream);
+			font-family: 'DM Sans', sans-serif;
+			overflow-x: hidden;
+		}
+		body::before {
+			content: '';
+			position: fixed;
+			inset: 0;
+			pointer-events: none;
+			opacity: .27;
+			background-image: radial-gradient(#f26d7d 1px, transparent 1px);
+			background-size: 24px 24px;
+			mask-image: linear-gradient(to bottom, black, transparent 78%);
+		}
+		.hero {
+			min-height: 100svh;
+			padding: 28px 7vw 54px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			background: linear-gradient(140deg, #fff8ed 10%, #ffe5d5 60%, #f9cbd0 100%);
+		}
+		.hero::after {
+			content: '';
+			position: absolute;
+			width: 48vw;
+			height: 48vw;
+			right: -17vw;
+			top: -14vw;
+			border-radius: 50%;
+			background: rgba(255, 209, 102, .46);
+		}
+		nav, .hero-copy, .scroll-note { position: relative; z-index: 1; }
+		nav { display: flex; justify-content: space-between; align-items: center; }
+		.brand { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .77rem; }
+		.date { color: var(--muted); font-size: .85rem; }
+		.hero-copy { max-width: 760px; margin: auto 0; padding-top: 7vh; }
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			color: #bf4e64;
+			font-weight: 700;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			font-size: .76rem;
+		}
+		.eyebrow::before { content: ''; width: 27px; height: 2px; background: var(--rose); }
+		h1, h2 { font-family: 'Playfair Display', Georgia, serif; line-height: .98; margin: 18px 0; }
+		h1 { max-width: 760px; font-size: clamp(3.8rem, 10vw, 8rem); letter-spacing: -.04em; }
+		h1 span { color: var(--rose); display: block; }
+		.intro { max-width: 480px; color: var(--muted); font-size: 1.07rem; line-height: 1.7; }
+		.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+		button, .jump {
+			border: 0;
+			border-radius: 99px;
+			padding: 14px 21px;
+			font: inherit;
+			font-weight: 700;
+			cursor: pointer;
+			transition: transform .2s ease, box-shadow .2s ease;
+			text-decoration: none;
+		}
+		button:hover, .jump:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(115, 48, 66, .15); }
+		.primary { background: var(--rose); color: white; }
+		.secondary, .jump { background: rgba(255,255,255,.7); color: var(--ink); border: 1px solid rgba(36,48,74,.12); }
+		.scroll-note { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: .8rem; }
+		.scroll-note span { width: 30px; height: 1px; background: var(--rose); }
+		main { position: relative; z-index: 1; }
+		.memories { max-width: 1120px; margin: 0 auto; padding: 92px 7vw 34px; }
+		.memories-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
+		.memories-heading h2 { margin-bottom: 0; }
+		.memories-heading p { max-width: 270px; color: var(--muted); font-size: .92rem; line-height: 1.6; margin: 0; }
+		.gallery { display: grid; grid-template-columns: 1.2fr .8fr; grid-template-rows: 220px 220px; grid-auto-rows: 220px; gap: 14px; }
+		.photo { position: relative; overflow: hidden; margin: 0; background: #ddd; cursor: zoom-in; }
+		.photo:first-child { grid-row: 1 / 3; }
+		.photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s ease; }
+		.photo:first-child img { object-position: center 42%; }
+		.photo:nth-child(2) img { object-position: center 30%; }
+		.photo:hover img { transform: scale(1.045); }
+		.photo figcaption { position: absolute; left: 16px; bottom: 14px; color: white; font-size: .78rem; font-weight: 700; text-shadow: 0 2px 12px #000; }
+		.photo::after { content: '↗'; position: absolute; top: 14px; right: 16px; color: white; font-size: 1.35rem; text-shadow: 0 2px 12px #000; }
+		.section { max-width: 1120px; margin: 0 auto; padding: 96px 7vw; }
+		.section-label { color: var(--rose); font-size: .77rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+		h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); max-width: 620px; }
+		.letter-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 58px; align-items: center; }
+		.letter { background: var(--paper); padding: 38px; border-left: 4px solid var(--yellow); box-shadow: 0 18px 50px rgba(114, 71, 56, .09); }
+		.letter p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; }
+		.signature { color: var(--rose) !important; font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; margin-bottom: 0 !important; }
+		.cake-wrap { min-height: 330px; display: grid; place-items: center; position: relative; }
+		.cake-wrap::before { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: #ffe3a6; z-index: -1; }
+		.cake { width: 190px; height: 116px; position: relative; margin-top: 60px; background: #ffad94; border-radius: 12px 12px 25px 25px; box-shadow: inset 0 -18px #f28b7c, 0 12px 0 #e8877b; }
+		.cake::before { content: ''; position: absolute; width: 210px; height: 35px; left: -10px; top: -18px; border-radius: 50%; background: #fff1dc; box-shadow: inset 0 -7px #ffd7c7; }
+		.cake::after { content: '••••'; letter-spacing: 32px; position: absolute; left: 17px; top: 34px; color: #fff1dc; font-size: 1.3rem; }
+		.candle { position: absolute; width: 12px; height: 52px; left: 89px; top: -65px; background: var(--rose); border-radius: 4px; }
+		.flame { position: absolute; width: 20px; height: 27px; left: -4px; top: -28px; background: var(--yellow); border-radius: 60% 40% 60% 40%; transform: rotate(18deg); animation: flicker .8s infinite alternate; }
+		@keyframes flicker { to { transform: rotate(-12deg) scale(.86); opacity: .75; } }
+		.reasons { background: #23304b; color: white; max-width: none; }
+		.reasons-inner { max-width: 1120px; margin: auto; padding: 96px 7vw; }
+		.reasons h2 { color: white; }
+		.reason-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 46px; }
+		.reason { padding: 24px 0; border-top: 1px solid rgba(255,255,255,.3); }
+		.reason b { display: block; color: var(--yellow); font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; margin-bottom: 16px; }
+		.reason p { color: #cad0dd; line-height: 1.65; }
+		footer { padding: 30px 7vw 48px; text-align: center; color: var(--muted); font-size: .82rem; }
+		.confetti { position: fixed; top: -20px; width: 9px; height: 15px; z-index: 5; animation: fall 2.7s linear forwards; }
+		@keyframes fall { to { transform: translateY(110vh) rotate(650deg); opacity: 0; } }
+		@media (max-width: 700px) {
+			.hero { padding: 22px 20px 34px; min-height: 100svh; }
+			nav { align-items: flex-start; gap: 12px; }
+			.brand { max-width: 145px; line-height: 1.4; }
+			.date { font-size: .72rem; text-align: right; line-height: 1.4; }
+			.hero-copy { padding-top: 11vh; }
+			h1 { font-size: clamp(3.35rem, 17vw, 5.5rem); line-height: .94; }
+			.eyebrow { font-size: .68rem; letter-spacing: .07em; }
+			.intro { font-size: .97rem; }
+			.actions { flex-direction: column; align-items: stretch; margin-top: 24px; }
+			.actions button, .actions .jump { width: 100%; text-align: center; }
+			.scroll-note { font-size: .74rem; }
+			.memories { padding: 62px 20px 18px; }
+			.memories-heading { display: block; margin-bottom: 24px; }
+			.memories-heading p { margin-top: 14px; }
+			.gallery { display: flex; flex-direction: column; gap: 12px; }
+			.photo { height: 300px; }
+			.photo:first-child { height: 430px; }
+			.section, .reasons-inner { padding: 62px 20px; }
+			.letter-grid { grid-template-columns: 1fr; gap: 25px; }
+			.letter { padding: 25px; }
+			.cake-wrap { min-height: 260px; }
+			.reason-list { grid-template-columns: 1fr; gap: 12px; margin-top: 30px; }
+			.reason { padding: 18px 0; }
+			footer { padding: 26px 20px 38px; line-height: 1.7; }
+		}
+		@media (max-width: 380px) {
+			h1 { font-size: 3.15rem; }
+			.hero-copy { padding-top: 8vh; }
+			.letter { padding: 21px; }
+			.photo { height: 260px; }
+			.photo:first-child { height: 370px; }
+		}
+	</style>
+</head>
+<body>
+	<header class="hero" id="top">
+		<nav><div class="brand">For my favourite girl</div><div class="date">27 August · Birthday edition</div></nav>
+		<div class="hero-copy">
+			<div class="eyebrow">Aaj ka din tumhare naam</div>
+			<h1>Happy Birthday,<span>Aarti.</span></h1>
+			<p class="intro">Tum sirf meri behen nahi, meri chhoti si khushi, meri partner-in-crime aur ghar ki sabse pyaari roshni ho.</p>
+			<div class="actions"><button class="primary" id="celebrate">Celebrate 🎉</button><a class="jump" href="#letter">Tumhare liye ek note ↓</a></div>
+		</div>
+		<div class="scroll-note"><span></span> scroll karke pyaar collect karo</div>
+	</header>
+
+	<main>
+		<section class="memories" aria-labelledby="memories-title">
+			<div class="memories-heading">
+				<div><div class="section-label">A little photo wall</div><h2 id="memories-title">Aarti, in her beautiful era.</h2></div>
+				<p>Har photo mein tumhari ek alag si roshni hai. Inhe dekhkar smile karna compulsory hai.</p>
+			</div>
+			<div class="gallery">
+				<figure class="photo"><img src="1.jpeg" alt="Aarti wearing a beautiful green saree"><figcaption>Grace, confidence &amp; green</figcaption></figure>
+				<figure class="photo"><img src="2.jpeg" alt="Aarti smiling for a portrait"><figcaption>That lovely smile</figcaption></figure>
+				<figure class="photo"><img src="3.jpeg" alt="Aarti looking happy in traditional clothes"><figcaption>Simply, Aarti</figcaption></figure>
+				<figure class="photo"><img src="4.jpeg" alt="Aarti posing for another beautiful portrait"><figcaption>Always so graceful</figcaption></figure>
+				<figure class="photo"><img src="5.jpeg" alt="Aarti smiling in a lovely portrait"><figcaption>Pure happiness</figcaption></figure>
+				<figure class="photo"><img src="6.jpeg" alt="Aarti looking radiant in a portrait"><figcaption>Our birthday star</figcaption></figure>
+			</div>
+		</section>
+		<section class="section" id="letter">
+			<div class="letter-grid">
+				<div>
+					<div class="section-label">Dil se, tumhare bhai ki taraf se</div>
+					<h2>Tum ho toh har ordinary din special lagta hai.</h2>
+					<div class="letter">
+						<p>Dear Aarti,</p>
+						<p>Tumhari smile ghar ka mood theek kar deti hai. Tum jitni strong aur kind ho, usse zyada khoobsurat tumhara dil hai. Aaj bas itna yaad rakhna: tum jo bhi sapna dekhogi, main hamesha tumhari team mein rahunga.</p>
+						<p>Hamesha khush raho, खूब saara cake khao, aur apni woh cute si smile kabhi mat khona.</p>
+						<p class="signature">Lots of love, tumhara bhai ♡</p>
+					</div>
+				</div>
+				<div class="cake-wrap" aria-label="Birthday cake illustration"><div class="cake"><div class="candle"><div class="flame"></div></div></div></div>
+			</div>
+		</section>
+
+		<section class="reasons">
+			<div class="reasons-inner">
+				<div class="section-label">Three little reminders</div>
+				<h2>Why you are impossible not to love.</h2>
+				<div class="reason-list">
+					<div class="reason"><b>01</b><p>Because tumhari energy poore room ko bright kar deti hai.</p></div>
+					<div class="reason"><b>02</b><p>Because tum bina bole bhi samajh leti ho ki sabko kya chahiye.</p></div>
+					<div class="reason"><b>03</b><p>Because tum jaisi ho, bilkul waisi hi perfect ho.</p></div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>Made with love, laughs & a little bit of birthday magic · <a href="#top" style="color:inherit">back to top ↑</a></footer>
+	<script>
+		const celebrateButton = document.querySelector('#celebrate');
+		document.querySelectorAll('.photo').forEach((photo) => {
+			photo.addEventListener('click', () => {
+				const image = photo.querySelector('img');
+				const viewer = document.createElement('div');
+				viewer.style.cssText = 'position:fixed;inset:0;z-index:10;background:rgba(15,20,31,.94);display:grid;place-items:center;padding:24px;cursor:zoom-out';
+				viewer.innerHTML = `<img src="${image.src}" alt="${image.alt}" style="max-width:100%;max-height:92vh;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.35)">`;
+				viewer.addEventListener('click', () => viewer.remove());
+				document.body.appendChild(viewer);
+			});
+		});
+		const colors = ['#f26d7d', '#ffd166', '#6fc7b4', '#23304b', '#ff967d'];
+		celebrateButton.addEventListener('click', () => {
+			for (let index = 0; index < 70; index += 1) {
+				const piece = document.createElement('i');
+				piece.className = 'confetti';
+				piece.style.left = `${Math.random() * 100}vw`;
+				piece.style.background = colors[index % colors.length];
+				piece.style.animationDelay = `${Math.random() * .6}s`;
+				piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+				document.body.appendChild(piece);
+				setTimeout(() => piece.remove(), 3400);
+			}
+			celebrateButton.textContent = 'Yay! Birthday magic ✨';
+			setTimeout(() => { celebrateButton.textContent = 'Celebrate 🎉'; }, 3000);
+		});
+	</script>
+</body>
+</html>
+ 
